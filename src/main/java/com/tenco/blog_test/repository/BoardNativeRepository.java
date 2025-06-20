@@ -35,6 +35,5 @@ public class BoardNativeRepository {
         Query query = em.createNativeQuery("select * from board_tb order by id desc ", Board.class);
 
         return query.getResultList();
-
     }
 }
