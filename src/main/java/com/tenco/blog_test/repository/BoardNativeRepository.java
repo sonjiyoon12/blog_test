@@ -1,8 +1,11 @@
 package com.tenco.blog_test.repository;
 
+import com.tenco.blog_test.model.Board;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.Query;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 @Repository
 public class BoardNativeRepository {
@@ -25,5 +28,13 @@ public class BoardNativeRepository {
         query.setParameter(3, username);
 
         query.executeUpdate();
+    }
+
+    // 게시글 목록 조회
+    public List<Board> findAll() {
+        Query query = em.createNativeQuery("select * from board_tb order by id desc ", Board.class);
+
+        return query.getResultList();
+
     }
 }

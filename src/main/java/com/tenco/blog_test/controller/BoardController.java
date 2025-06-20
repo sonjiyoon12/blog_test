@@ -38,4 +38,6 @@ public class BoardController {
         return "redirect:/";
     }
 
+
+
 }
