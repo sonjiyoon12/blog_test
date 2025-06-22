@@ -1,6 +1,7 @@
 package com.tenco.blog_test.model;
 
 
+import com.tenco.blog_test.utils.MyDateUtil;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -19,5 +20,9 @@ public class Board {
     private String content;
     private String username;
     private Timestamp createdAt;
+
+    public String getTime() {
+        return MyDateUtil.timestampFormat(createdAt);
+    }
 
 }
